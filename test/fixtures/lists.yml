@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  l_name: MyString
+  l_priority: 1
+  board: one
+
+two:
+  l_name: MyString
+  l_priority: 1
+  board: two
