@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_board, only: [:new, :create]
+  before_action :set_board, only: [:new, :create, :edit, :update]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def new
@@ -15,12 +15,12 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list.update_list(@list.id, list_params)
-    redirect_to @list
+    List.update_list(@list.id, list_params)
+    redirect_to @board
   end
 
   def destroy
-    List.delete_list(@list)
+    @list.destroy
     redirect_to board_path(@list.board_id)
   end
 

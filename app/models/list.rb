@@ -11,26 +11,27 @@ class List < ApplicationRecord
   end
 
   def self.single_list(id)
-    Board.find_by_sql(["
+    List.find_by_sql(["
       Select *
       FROM lists AS l
       WHERE l.id = ?      
       ", id]).first
   end
 
-  def self.delete_list(id)
-    Board.find_by_sql(["
-      DELETE FROM lists as l
-      WHERE l.id = ?
-      ;", id])
-  end
+  # def self.delete_list(id)
+  #   List.find_by_sql(["
+  #     DELETE FROM lists AS l
+  #     JOIN tasks
+  #     WHERE l.id = ?
+  #     ;", id])
+  # end
 
   def self.update_list(id, p)
-    Board.find_by_sql(["
+    List.find_by_sql(["
       UPDATE lists AS l
       Set l_name = ?, l_priority = ?, updated_at = ?
       WHERE l.id = ?;
-      ", p[:l_name], p,[:l_priority], DateTime.now, id])
+      ", p[:l_name], p[:l_priority], DateTime.now, id])
   end
 
   def self.create_list(p, id)

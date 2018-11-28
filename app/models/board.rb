@@ -39,11 +39,11 @@ class Board < ApplicationRecord
       ", p[:b_name], DateTime.now, board_id])
   end
 
-  def self.delete_board(board_id)
-    Board.find_by_sql(["
-      DELETE FROM boards as b
-      WHERE b.id = ?
-      ;", board_id])
-  end
+  # def self.delete_board(board_id)
+  #   Board.find_by_sql(["
+  #     DELETE FROM boards AS b
+  #     WHERE b.id = ?
+  #     ;", board_id])
+  # end
 
 end

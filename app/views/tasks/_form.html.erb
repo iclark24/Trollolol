@@ -1,15 +1,36 @@
-<%= form_with(model: @task, local: true, class: "ui form") do |f| %>
-  <div class="field">
-    <%= f.label "Task Name" %>
-    <%= f.text_field :t_name, class: "input" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description, class: "input" %>
-  </div>
-  <div class="field">
-    <%= f.label "Priority" %>
-    <%= f.number_field :t_priority, class: "input" %>
-  </div>
- <%= f.submit nil, class: "ui blue button" %>
-<% end %>
+<% if @task %>
+
+  <%= form_with(model: [@list, @task], local: true, class: "ui form") do |f| %>
+    <div class="field">
+      <%= f.label "Task Name" %>
+      <%= f.text_field :t_name, class: "input" %>
+    </div>
+    <div class="field">
+      <%= f.label "Description" %>
+      <%= f.text_field :description, class: "input" %>
+    </div>
+    <div class="field">
+      <%= f.label "Priority" %>
+      <%= f.number_field :t_priority, class: "input" %>
+    </div>
+  <%= f.submit nil, class: "ui blue button" %>
+  <% end %>
+
+
+<% else %>
+  <%= form_with(model: [@list, @tasks], local: true, class: "ui form") do |f| %>
+    <div class="field">
+      <%= f.label "Task Name" %>
+      <%= f.text_field :t_name, class: "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "input" %>
+    </div>
+    <div class="field">
+      <%= f.label "Priority" %>
+      <%= f.number_field :t_priority, class: "input" %>
+    </div>
+    <%= f.submit nil, class: "ui blue button" %>
+  <% end %>
+<%end%>
