@@ -3,8 +3,16 @@
 <%= link_to "Delete", @board, method: :delete, class: "ui red button inverted" %>
 <%= link_to "New List", new_board_list_path(@board), class:"ui green button inverted"%>
 
-<% @board.lists.each do |list| %>
-  <div>
-    <h3><%= link_to list.l_name, list %></h3>
-  </div>
-<% end %>
+
+<hr />
+<div class="ui grid">
+  <% @board.lists.sort_by(&:l_priority).each do |list| %>
+    <div class="five wide column">
+      <div class="ui raised center aligned segment">
+          <h3><%= list.l_name %></h3>
+          <%= link_to "Edit", edit_list_path(list.id), class: "ui mini orange button inverted" %>
+          <%= link_to "Delete", list, method: :delete, class: "ui mini red button inverted" %>
+      </div>
+    </div>
+  <% end %>
+</div>
