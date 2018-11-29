@@ -1,13 +1,15 @@
 class Task < ApplicationRecord
   belongs_to :list
 
-  def self.single_list(list_id)
-    List.find_by_sql(["
-      Select *
-      FROM lists AS l
-      WHERE l.id = ?      
-      ", list_id]).first
-  end
+  # def self.single_list(list_id)
+  #   List.find_by_sql(["
+  #     Select *
+  #     FROM lists AS l
+  #     WHERE l.id = ?      
+  #     ", list_id]).first
+  # end
+
+
 
   def self.single_task(id)
     Task.find_by_sql(["
@@ -27,9 +29,9 @@ class Task < ApplicationRecord
   def self.update_task(id, p)
     Task.find_by_sql(["
       UPDATE tasks AS t
-      Set t_name = ?, description = ?, t_priority = ?, updated_at = ?
+      Set t_name = ?, list_id = ?, description = ?, t_priority = ?, updated_at = ?
       WHERE t.id = ?;
-      ", p[:t_name], p[:description], p[:t_priority], DateTime.now, id])
+      ", p[:t_name], p[:list_id], p[:description], p[:t_priority], DateTime.now, id])
   end
 
   def self.create_task(p, id)

@@ -1,5 +1,3 @@
-<% if @list %>
-
   <%= form_with(model: [@board, @list], local: true, class: "ui form") do |f| %>
     <div class="field">
       <%= f.label "List Name" %>
@@ -11,18 +9,3 @@
     </div>
   <%= f.submit nil, class: "ui blue button" %>
   <% end %>
-
-<% else %>
-  <%= form_with(model: [@board, @lists], local: true, class: "ui form") do |f| %>
-    <div class="field">
-      <%= f.label "List Name" %>
-      <%= f.text_field :l_name, required: true, class: "input" %>
-    </div>
-    <div class="field">
-      <%= f.label "Priority" %>
-      <%= f.number_field :l_priority, required: true, class: "input" %>
-    </div>
-  <%= f.submit nil, class: "ui blue button" %>
-  <% end %>
-
-<% end %>

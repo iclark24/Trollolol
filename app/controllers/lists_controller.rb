@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
-  before_action :set_board, only: [:new, :create, :edit, :update]
+  before_action :set_board, except: [:destroy]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def new
-    @lists = @board.lists.new
+    @list = @board.lists.new
   end
 
   def create

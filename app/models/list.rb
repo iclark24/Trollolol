@@ -10,6 +10,14 @@ class List < ApplicationRecord
       ", board_id]).first
   end
 
+  def self.all_local_lists(id)
+    List.find_by_sql(["
+      Select *
+      FROM lists AS l
+      WHERE l.board_id = ?      
+      ", id])
+  end
+
   def self.single_list(id)
     List.find_by_sql(["
       Select *

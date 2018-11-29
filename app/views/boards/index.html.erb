@@ -1,12 +1,12 @@
 <h1>Boards</h1>
 <%= link_to "New Board", new_board_path, class:"ui green button inverted"%>
-<hr/>
-<div class="ui grid">
+<div class="ui divider"></div>
+<div class="ui four raised centered cards">
   <% @boards.each do |board| %>
-    <div class="three wide column">
-      <div class="ui raised center aligned segment">
-        <h3><%= link_to board.b_name, board %></h3>
-      </div>
-    </div>
+        <div class="card">
+          <div class="ui divider"></div>
+          <h3 class="center aligned header"><%= link_to board.b_name, board %></h3>
+          <div class="ui divider"></div>
+        </div>
   <% end %>
 </div>

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
 
   def new
-    @tasks = @list.tasks.new
+    @task = @list.tasks.new
   end
 
   def create
@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @lists = List.all_local_lists(@list.board_id)
   end
 
   def update
@@ -34,7 +35,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:t_name, :description, :t_priority)
+      params.require(:task).permit(:t_name, :list_id, :description, :t_priority)
     end
 
 end
