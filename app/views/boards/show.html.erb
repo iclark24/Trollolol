@@ -8,13 +8,13 @@
 <div class="ui grid">
   <% @board.lists.sort_by(&:l_priority).each do |list| %>
     <div class="five wide column">
-      <div class="ui raised center aligned segment">
+      <div class="ui raised center aligned red segment">
           <h3><%= list.l_name %></h3>
           <%= link_to "New Task", new_list_task_path(list), class:"ui mini green button inverted"%>
           <hr/>
             <% list.tasks.sort_by(&:t_priority).each do |task| %>
               <div class="five wide column">
-                <div class="ui raised center aligned segment">
+                <div class="ui raised center aligned blue segment">
                   <h3><%= task.t_name %></h3>
                   <hr/>
                   <p><%= task.description %></p>
@@ -22,8 +22,8 @@
                   <%= link_to "Delete", list_task_path(task.list_id, task.id), method: :delete, class: "ui mini red button inverted" %>
                 </div>
               </div>
+              <hr/>
             <%end%>
-          <hr/>
           <%= link_to "Edit", edit_board_list_path(list.board_id, list.id), class: "ui mini orange button inverted" %>
           <%= link_to "Delete", list, method: :delete, class: "ui mini red button inverted" %>
       </div>

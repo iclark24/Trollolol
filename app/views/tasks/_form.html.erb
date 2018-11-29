@@ -3,15 +3,15 @@
   <%= form_with(model: [@list, @task], local: true, class: "ui form") do |f| %>
     <div class="field">
       <%= f.label "Task Name" %>
-      <%= f.text_field :t_name, class: "input" %>
+      <%= f.text_field :t_name, required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Description" %>
-      <%= f.text_field :description, class: "input" %>
+      <%= f.text_field :description, required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Priority" %>
-      <%= f.number_field :t_priority, class: "input" %>
+      <%= f.number_field :t_priority, required: true, class: "input" %>
     </div>
   <%= f.submit nil, class: "ui blue button" %>
   <% end %>
@@ -21,15 +21,15 @@
   <%= form_with(model: [@list, @tasks], local: true, class: "ui form") do |f| %>
     <div class="field">
       <%= f.label "Task Name" %>
-      <%= f.text_field :t_name, class: "input" %>
+      <%= f.text_field :t_name, required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description, class: "input" %>
+      <%= f.text_field :description, required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Priority" %>
-      <%= f.number_field :t_priority, class: "input" %>
+      <%= f.number_field :t_priority, required: true, class: "input" %>
     </div>
     <%= f.submit nil, class: "ui blue button" %>
   <% end %>
