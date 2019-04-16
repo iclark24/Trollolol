@@ -1,11 +1,11 @@
   <%= form_with(model: [@list, @task], local: true, class: "ui form") do |f| %>
     <div class="field">
       <%= f.label "Task Name" %>
-      <%= f.text_field :t_name, required: true, class: "input" %>
+      <%= f.text_field :t_name, autocomplete: "off", required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Description" %>
-      <%= f.text_field :description, required: true, class: "input" %>
+      <%= f.text_field :description, autocomplete: "off", required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Priority" %>

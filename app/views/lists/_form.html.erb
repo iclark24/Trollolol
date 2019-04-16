@@ -1,7 +1,7 @@
   <%= form_with(model: [@board, @list], local: true, class: "ui form") do |f| %>
     <div class="field">
       <%= f.label "List Name" %>
-      <%= f.text_field :l_name, required: true, class: "input" %>
+      <%= f.text_field :l_name, autocomplete: "off", required: true, class: "input" %>
     </div>
     <div class="field">
       <%= f.label "Priority" %>
